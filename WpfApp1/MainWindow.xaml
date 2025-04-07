@@ -12,14 +12,17 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Label Name="t" Content="BMI" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"
                Grid.Row="0"/>
         <TextBox 
-            Tag="Súly: " Name="wi" Text="" Margin="20 10" FontSize="30" Grid.Row="1"/>
-        <TextBox Tag="Magasság: " Name="hi" Text="" Margin="20 10" FontSize="30" Grid.Row="2"/>
-        <Label Name="r" Content="Eredmény: " FontSize="50" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            Tag="Súly: " Name="wi" Text="Súly: " Margin="20 10" FontSize="30" Grid.Row="1"/>
+        <TextBox Tag="Magasság: " Name="hi" Text="Magasság: " Margin="20 10" FontSize="30" Grid.Row="2"/>
+        <TextBox Tag="Név: " Name="ni" Text="Név: " Margin="20 10" FontSize="30" Grid.Row="3"/>
+        <!--<Label Name="r" Content="Eredmény: " FontSize="50" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+        <StackPanel Name="ev" Grid.Row="4" Background="Brown" Orientation="Horizontal"/>
     </Grid>
     
 </Window>

@@ -26,45 +26,84 @@ namespace WpfApp1
             InitializeComponent();
             start();
         }
-        void start() 
-        {
-            wi.Text = wi.Tag.ToString();
-            hi.Text = hi.Tag.ToString();
-
-
-
+        void start()
+        { 
             wi.GotFocus += f;
             hi.GotFocus += f;
+            ni.GotFocus += f;
             wi.LostFocus += uf;
             hi.LostFocus += uf;
+            ni.LostFocus += uf;
             wi.KeyDown += e;
             hi.KeyDown += e;
+            ni.KeyDown += e;
             
 
         }
         void e(object s, KeyEventArgs e)
         {
-           if(e.Key == Key.Enter)
-           {
-                int temp;
-                int temp2;
-                if (int.TryParse(wi.Text, out temp) && int.TryParse(hi.Text, out temp2))
+           //if(e.Key == Key.Enter)
+           //{
+           //     int temp;
+           //     int temp2;
+           //     if (int.TryParse(wi.Text, out temp) && int.TryParse(hi.Text, out temp2))
+           //     {
+           //         r.Content = temp / (Math.Pow(((float)temp2/100),2));
+           //     }
+           //     else
+           //     {
+           //         MessageBox.Show("szar");
+           //     }
+           //}
+
+            if(e.Key == Key.Enter)
+            {
+                int w;
+                int h;
+                if(int.TryParse(wi.Text.Trim(),out w) && int.TryParse(hi.Text.Trim(),out h))
                 {
-                    r.Content = temp / (Math.Pow(((float)temp2/100),2));
+                    double BMI = w / Math.Pow(((double)h / 100), 2);
+                    ev.Children.Add(new Label() { Content = $"Név: {ni.Text} BMI: {BMI.ToString("0.00")} vagyis {ow(BMI)}" });
                 }
-                else
-                {
-                    MessageBox.Show("szar");
-                }
-           }
+            }
+        }
+        string ow(double BMI)
+        {
+            if (BMI < 18.5)
+            {
+                return "sovány";
+            }
+            if (BMI < 25)
+            {
+                return "normál";
+            }
+            if (BMI < 30)
+            {
+                return "dagadek";
+            }
+            if (BMI < 35)
+            {
+                return "kurva dagadek";
+            }
+            if (BMI < 40)
+            {
+                return "kys fatass";
+            }
+            return "dagi";
         }
         void f(object s, EventArgs e)
         {
-            TextBox tbox = s as TextBox;
+            //TextBox tbox = s as TextBox;
 
-            if(tbox.Text == tbox.Tag.ToString())
+            //if(tbox.Text == tbox.Tag.ToString())
+            //{
+            //    tbox.Text = "";
+            //}
+
+            TextBox sender = s as TextBox;
+            if(sender.Text == sender.Tag.ToString())
             {
-                tbox.Text = "";
+                sender.Clear();
             }
 
             
@@ -72,17 +111,19 @@ namespace WpfApp1
         }
         void uf(object s, EventArgs e)
         {
-            TextBox tbox = s as TextBox;
+            //TextBox tbox = s as TextBox;
 
-            if (tbox.Text == "")
+            //if (tbox.Text == "")
+            //{
+            //    tbox.Text = tbox.Tag.ToString();
+            //}
+
+            TextBox sender = s as TextBox;
+            if(sender.Text == "")
             {
-                tbox.Text = tbox.Tag.ToString();
+                sender.Text = sender.Tag.ToString();
             }
 
-        }
-        void k(object s, EventArgs e)
-        {
-            
         }
     }
 }
