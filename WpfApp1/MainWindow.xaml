@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Name="t" Content="BMI" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"
+               Grid.Row="0"/>
+        <TextBox 
+            Tag="Súly: " Name="wi" Text="" Margin="20 10" FontSize="30" Grid.Row="1"/>
+        <TextBox Tag="Magasság: " Name="hi" Text="" Margin="20 10" FontSize="30" Grid.Row="2"/>
+        <Label Name="r" Content="Eredmény: " FontSize="50" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
+    
+</Window>
