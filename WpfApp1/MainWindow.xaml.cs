@@ -31,12 +31,15 @@ namespace WpfApp1
             wi.GotFocus += f;
             hi.GotFocus += f;
             ni.GotFocus += f;
+            ai.GotFocus += f;
             wi.LostFocus += uf;
             hi.LostFocus += uf;
             ni.LostFocus += uf;
+            ai.LostFocus += uf;
             wi.KeyDown += e;
             hi.KeyDown += e;
             ni.KeyDown += e;
+            ai.KeyDown += e;
             
 
         }
@@ -63,7 +66,7 @@ namespace WpfApp1
                 if(int.TryParse(wi.Text.Trim(),out w) && int.TryParse(hi.Text.Trim(),out h))
                 {
                     double BMI = w / Math.Pow(((double)h / 100), 2);
-                    ev.Children.Add(new Label() { Content = $"Név: {ni.Text} BMI: {BMI.ToString("0.00")} vagyis {ow(BMI)}" });
+                    ev.Children.Add(new Label() { Content = $"Név: {ai.Text}, Életkor:  {ai.Text}, BMI: {BMI.ToString("0.00")} vagyis {ow(BMI)}" });
                 }
             }
         }
